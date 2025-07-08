@@ -26,26 +26,26 @@ export async function GET(){
 export async function POST(request: NextRequest){
 
     try {
-        const session = await getServerSession(authOptions);
+        const session = await getServerSession(authOptions);   //Authentication for uploading user be user
     
-        if(!session){
+        if(!session){                                           
             return NextResponse.json(
                 {error: "Unauthorized Access"},
                 {status: 401}, 
             )
         }
 
-        await connectToDatabase();
+        await connectToDatabase();                          
 
         const body: IVideo=await request.json()
 
-        if(
+        if(                                             // validating the required fields before uploading 
             !body.title ||
             !body.description ||
             !body.thumbnailUrl ||
             !body.videoUrl
         ){
-            return NextResponse.json(
+            return NextResponse.json(                   // if any of the field not provided return error
                 {error: "Missing Required Field"},
                 {status: 401}, 
             )
