@@ -20,7 +20,7 @@ function LoginPage() {
     if (res?.error) {
       console.log(res.error);
     } else {
-      router.push("/");
+      router.push("/dashboard");
     }
   };
 

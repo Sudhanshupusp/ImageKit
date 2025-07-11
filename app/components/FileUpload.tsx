@@ -6,7 +6,7 @@ import {
 import { useState } from "react";
 
 interface FileUploadProps {
-  onSuccess: (res: any) => void;
+  onSuccess?: (res: any) => void;
   onProgress?: (progress: number) => void;
   fileType?: "image" | "video";
 }
@@ -60,7 +60,7 @@ const FileUpload = ({ onSuccess, onProgress, fileType }: FileUploadProps) => {
         
       });
 
-      onSuccess(res)
+      onSuccess?.(res)
     } catch (error) {
         console.error("Upload Failed", error)
     } finally{
