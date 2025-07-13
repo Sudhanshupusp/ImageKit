@@ -10,6 +10,7 @@ export default async function DashboardPage() {
       <div style={{ padding: '2rem' }}>
         <h1>You must be signed in to upload videos</h1>
       </div>
+     
     );
   }
 
